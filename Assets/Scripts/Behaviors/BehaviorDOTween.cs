@@ -3,7 +3,9 @@ using UnityEngine;
 
 public class BehaviorDOTween : MonoBehaviour
 {
-    public Transform capsule, cube, quad;
+    public Transform capsule, cube, quad, treeWithCube;
+    public Transform tree;
+    public Ease treeEase;
     
     public void ChangeScale()
     {
@@ -16,4 +18,15 @@ public class BehaviorDOTween : MonoBehaviour
         //check easings.net for more easing functions
         cube.DOMoveX(3f, 1f).SetEase(Ease.InOutBounce);
     }
+
+    public void ChangeEasing()
+    {
+        tree.DOMoveY(3f, 1f).SetEase(treeEase);
+    }
+
+    public void GoLoop()
+    {
+        treeWithCube.DOMoveX(3f, 1f).SetLoops(-1, LoopType.Yoyo);
+    }
+    
 }
